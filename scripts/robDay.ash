@@ -45,7 +45,6 @@ int wins;
 int fights;
 string winMessage = "Hi!";
 string loseMessage = "Hi!";
-boolean spiderFought = FALSE;
 boolean calcUniverse = TRUE;
 /*-----------------------------------------------------
 *					Sub-Functions Start
@@ -119,6 +118,8 @@ void getDrink(int qty, item it)
 	int qtyNeeded = qty - item_amount(it);
 	if (it == $item[Broberry brogurt] && qtyNeeded > 0) // Don't mall these
 		buy($coinmaster[The Frozen Brogurt Stand],qty,it);
+	else if (it == $item[Dinsey Whinskey] && qtyNeeded > 0)
+		buy($coinmaster[The Dinsey Company Store],qty,it);
 	else if (qtyNeeded > 0)
 		cli_execute("Buy " + qtyNeeded + " " + it);
 	drink(qty,it);
@@ -131,10 +132,9 @@ void getEat(int qty, item it)
 {
 	int qtyNeeded = qty - item_amount(it);
 	if (qtyNeeded > 0 && it == $item[Karma shawarma])
-	{
-		if (!take_closet(qtyNeeded,$item[Karma shawarma]))
-			buy($coinmaster[The SHAWARMA Initiative],qty,it);
-	}
+		buy($coinmaster[The SHAWARMA Initiative],qty,it);
+	else if (qtyNeeded > 0 && it == $item[dinsey food-cone])
+		buy($coinmaster[The Dinsey Company Store],qty,it);
 	else if (qtyNeeded > 0)
 		cli_execute("Buy " + qtyNeeded + " " + it);
 	eat(qty,it);
@@ -181,11 +181,9 @@ void wobble(effect buff, item source, int turns)
 /*******************************************************/
 void numberology(int digits)
 {
-	if (calcUniverse)
-	{
-		if (cli_execute("numberology " + digits))
-			calcUniverse = FALSE;
-	}
+	//if (calcUniverse)
+	if (cli_execute("numberology " + digits))
+		calcUniverse = FALSE;
 }
 
 /*-----------------------------------------------------
@@ -201,8 +199,8 @@ void consume1()
 	use_skill(2,$skill[The Ode to Booze]);
 	getDrink(1,$item[Ambitious Turkey]);
 	getDrink(3,$item[Broberry brogurt]);
-	use(1,$item[synthetic dog hair pill]);
-	getDrink(2,$item[perfect cosmopolitan]);
+	getDrink(1,$item[perfect cosmopolitan]);
+	getDrink(1,$item[Dinsey Whinskey]);
 	cli_execute("shrug ode");
 	equip($item[crumpled felt fedora]);
 	
@@ -212,7 +210,8 @@ void consume1()
 	getUse(1,$item[milk of magnesium]);
 	eat(1,$item[spaghetti breakfast]);
 	//use(1,$item[distention pill]);
-	getEat(4,$item[jumping horseradish]);
+	getEat(3,$item[jumping horseradish]);
+	getEat(3,$item[Dinsey food-cone]);
 }
 
 /*******************************************************
@@ -269,6 +268,7 @@ void buffs(boolean consume)
 	{
 		consume1();
 	}
+	cli_execute("terminal enhance meat"); cli_execute("terminal enhance meat"); cli_execute("terminal enhance meat");
 	getUse(1,$item[red snowcone]);
 	getUse(1,$item[Gene Tonic: Fish]);
 	getUse(1,$item[pink candy heart]);
@@ -281,9 +281,10 @@ void buffs(boolean consume)
 	use(1,$item[papier-m&acirc;ch&eacute; toothpicks]);
 	getUse(1,$item[recording of The Ballad of Richie Thingfinder]);
 	use(1,$item[The Legendary Beat]);
-	//getChibiBuff();
 	if (item_amount($item[thin black candle]) < 3)
 		cli_execute("buy " + (3-item_amount($item[thin black candle])) + " thin black candle");
+	if (item_amount($item[tattered scrap of paper]) < 1)
+		cli_execute("buy " + 1 + " tattered scrap of paper");
 	cli_execute("summon 2");
 	cli_execute("hatter 22");
 	cli_execute("pool 1");
@@ -317,11 +318,6 @@ void brickos()
 	cli_execute("autoattack Beach");
 	if (!have_equipped($item[Mr. Cheeng's spectacles]))
 		equip($slot[acc3],$item[Mr. Cheeng's spectacles]);
-/* 	if (item_amount($item[bricko ooze]) < 10)
-	{
-		int qty = 10 - item_amount($item[bricko ooze]);
-		buy(qty,$item[bricko ooze]);
-	} */
 	use_skill(1,$skill[Bind Spice Ghost]);
 	use_familiar($familiar[Fist Turkey]);
 	while (get_property("_brickoFights").to_int() < 10)
@@ -335,13 +331,17 @@ void brickos()
 /*******************************************************/
 void machineTunnels()
 {
+	int times = 0;
 	cli_execute("use 5 magical mystery juice");
 	use_familiar($familiar[Machine Elf]);
 	cli_execute("outfit Beach4");
 	if (!have_equipped($item[Mr. Cheeng's spectacles]))
 		equip($slot[acc3],$item[Mr. Cheeng's spectacles]);
-	while(get_property("_machineTunnelsAdv").to_int() < 5)
+	while((get_property("_machineTunnelsAdv").to_int() < 5) && (times < 5))
+	{
 		adv1($location[The Deep Machine Tunnels],-1,"");
+		times+=1;
+	}
 }
 
 /*******************************************************
@@ -350,6 +350,7 @@ void machineTunnels()
 /*******************************************************/
 void fax()
 {
+	restore_mp(1000);
 	if (item_amount($item[photocopied monster]) == 0)
 	{
 		cli_execute("fax get");
@@ -477,14 +478,14 @@ void diner()
 	wobble($effect[Merry Smithsness], $item[Flaskfull of Hollow], 150);
 	// Finish charging stinky cheese
 	cli_execute("outfit Beach3");
-	adventure(14,$location[Sloppy seconds Diner]);
+	adventure(18,$location[Sloppy seconds Diner]);
 }
 void farm()
 {
 	equip($slot[weapon],$item[garbage sticker]);
 	wobble($effect[Wasabi Sinuses], $item[Knob Goblin nasal spray], 10);
 	wobble($effect[Merry Smithsness], $item[Flaskfull of Hollow], 150);
-	wobble($effect[How to Scam Tourists], $item[How to Avoid Scams], 20); // Buff for mtn
+	wobble($effect[How to Scam Tourists], $item[How to Avoid Scams], 20);
 	adventure(50,$location[Barf Mountain]);
 	// Buffs
 	cli_execute("pool 1");
@@ -509,13 +510,13 @@ void farm()
 }
 void rollover()
 {
-	
 	// Put stuff in store and closet
 	put_shop(0,0,$item[Five Second Energy&trade;]);
 	put_shop(0,0,$item[Jerks' Health&trade; Magazine]);
 	put_closet(item_amount($item[black snowcone]),$item[black snowcone]);
 	put_closet(item_amount($item[fish juice box]),$item[fish juice box]);
 	put_closet(item_amount($item[rubber nubbin]),$item[rubber nubbin]);
+	cli_execute("/closet * droll monocle");
 	cli_execute("PvPItemCheck.ash");
 	// Get ready for rollover
 	cli_execute("fold stinky cheese diaper");
@@ -574,8 +575,6 @@ void dataProcess()
 	print(""); // Formatting
 	foreach it in invStop
 	{
-		if ((invStop[it] > invStart[it]) && (it == $item[rubber nubbin]))
-			spiderFought = TRUE;
 		if (it  == $item[ChibiBuddy&trade; (on)])
 			invStop[it]=invStart[it];	// Script doesn't handle chibi buddies well
 		if (it == $item[ChibiBuddy&trade; (off)])
@@ -624,7 +623,11 @@ void PvPFights(int stance, string hitfor)
 	invStartPvP = get_inventory();
 	fights = pvp_attacks_left();
 	
-	use_familiar($familiar[Exotic Parrot]);
+	// visit_url("monkeycastle.php?who=4&action=mombuff&whichbuff=2");
+	
+	use_familiar($familiar[Mutant Gila Monster]);
+	cli_execute("/outfit naked");
+	//cli_execute("use 1 lynyrd snare");
 	cli_execute("outfit PvP");
 	
 	string attackURL = "peevpee.php?action=fight&place=fight&attacktype=" + hitFor + "&ranked=1" + "&stance=" + stance + "&who=" + "&losemessage=" + loseMessage + "&winmessage=" + winMessage;
@@ -646,10 +649,10 @@ void main()
 	
 	// Charters
 	bjornify_familiar($familiar[Mariachi Chihuahua]);
+	take_closet(1,$item[droll monocle]);
 	cli_execute("autoConspiracy.ash");
 	use_skill(1,$skill[Bind Spaghetti Elemental]);
 	cli_execute("autoVolcano.ash");
-	cli_execute("autoGlacier.ash");
 	cli_execute("autoattack beach");
 		
 	// No or minimal turn use
@@ -667,15 +670,13 @@ void main()
 	dataEnd(); // Store new inventory, meat, and turncount
 	
 	// Conclude
-	PvPFights(4,"lootwhatever"); // "fame" or "flowers" or "lootwhatever"
+	PvPFights(8,"lootwhatever"); // "fame" or "flowers" or "lootwhatever"
 	rollover();
 	
 	// How much meat did I make?
 	dataProcess();
 	// Print everything out
-	if (spiderFought)
-		print("Vivilein was naughty today.", "green");
-	print(""); // Formatting
+	print("-----------------"); // Formatting
 	print("Total item expenses: " + rnum(itemLoss,2) + " meat", "red");
 	print("Total item gain: " + rnum(itemGain,2) + " meat", "green");
 	print("Total meat gained (base): " + rnum(meatStop - meatStart,2) + " meat", "navy");

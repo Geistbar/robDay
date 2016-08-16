@@ -50,15 +50,28 @@ visit_url("da.php?barrelshrine=1");
 visit_url("choice.php?pwd&whichchoice=1100&option=4");
 
 // Pick beer garden if at day 7
-if (get_campground()[$item[fancy beer label]] == 6)
+if (visit_url("campground.php").contains_text("beergarden7.gif"))
+{
 	cli_execute("garden pick");
+	cli_execute("make artisanal homebrew gift package");
+}
+/* if (get_campground()[$item[fancy beer label]] == 6)
+	cli_execute("garden pick"); */
 
 // Tea Tree
 cli_execute("teatree royal");
-use(1,$item[cuppa royal tea]);
+put_closet(1,$item[cuppa royal tea]);
+
+// Source Terminal
+cli_execute("terminal extrude food");
+cli_execute("terminal extrude food");
+cli_execute("terminal extrude food");
 
 // Draw 3 cards
 cli_execute("cheat island; cheat recall; cheat mickey; autosell 1952 Mickey Mantle card");
+
+// Cop bucks
+cli_execute("Detective Solver.ash");
 
 // Get funfunds from maintenance
 if (item_amount($item[bag of park garbage]) == 0)
