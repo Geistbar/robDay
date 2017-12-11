@@ -1,5 +1,5 @@
 script "autoStartDay.ash";
-import <zlib.ash>
+//import <zlib.ash>
 // _DayStart.ash
 // Does beginning of day stuff that Mafia still doesn't do automatically
 
@@ -36,9 +36,9 @@ visit_url("campground.php?action=dnapotion");
 visit_url("campground.php?action=dnapotion");
 
 // Hit Vivi with stuff
-/* if (item_amount($item[time's arrow]) == 0)
-	buy(1,$item[time's arrow],20000);
-cli_execute("throw time's arrow at skf"); */
+// if (item_amount($item[time's arrow]) == 0)
+// buy(1,$item[time's arrow],20000);
+// cli_execute("throw time's arrow at skf");
 cli_execute("/cast hug @ skf");
 
 // Call default Mafia breakfast
@@ -55,17 +55,42 @@ if (visit_url("campground.php").contains_text("beergarden7.gif"))
 	cli_execute("garden pick");
 	cli_execute("make artisanal homebrew gift package");
 }
-/* if (get_campground()[$item[fancy beer label]] == 6)
-	cli_execute("garden pick"); */
+
+// 3 wishes
+string wish = "I was rich"; //"More wishes"; //
+int times = 0;
+while (times < 3)
+{
+	visit_url("inv_use.php?whichitem=9529");
+	visit_url("choice.php?whichchoice=1267&option=1&wish=" + wish);
+	times+=1;
+}
+
+// Sea Jelly
+use_familiar($familiar[Space Jellyfish]);
+visit_url("place.php?whichplace=thesea&action=thesea_left2");
+run_choice(1);
 
 // Tea Tree
-cli_execute("teatree royal");
-put_closet(1,$item[cuppa royal tea]);
-
+int rng = random(3);
+if (rng == 0)
+{
+	cli_execute("teatree Voraci tea");
+	put_closet(1,$item[Cuppa Voraci tea]);
+}
+else if (rng > 0)
+{
+	cli_execute("teatree Sobrie tea");
+	put_closet(1,$item[Cuppa Sobrie tea]);
+}
 // Source Terminal
-cli_execute("terminal extrude food");
-cli_execute("terminal extrude food");
-cli_execute("terminal extrude food");
+cli_execute("terminal extrude booze");
+cli_execute("terminal extrude booze");
+cli_execute("terminal extrude booze");
+
+/* // Grab horse
+visit_url("place.php?whichplace=town_right&action=town_horsery");
+run_choice(2); */
 
 // Draw 3 cards
 cli_execute("cheat island; cheat recall; cheat mickey; autosell 1952 Mickey Mantle card");
@@ -78,3 +103,27 @@ if (item_amount($item[bag of park garbage]) == 0)
 	buy(1,$item[bag of park garbage]);
 visit_url("place.php?whichplace=airport_stench&action=airport3_tunnels");
 visit_url("choice.php?pwd&option=6&whichchoice=1067");
+
+// Splendid martinis
+cli_execute("briefcase collect");
+
+// Farfuture booze
+cli_execute("Farfuture booze");
+put_shop(0,0,$item[Shot of Kardashian Gin]);
+
+if (item_amount($item[photocopied monster]) == 0)
+{
+	cli_execute("/whitelist generic clan name");
+	cli_execute("fax get");
+	cli_execute("/whitelist the clan of intelligent people");
+	if (!visit_url("desc_item.php?whichitem=835898159").contains_text("Embezzler"))
+		cli_execute("faxbot witchess bishop");
+}
+
+// Use mumming trunk
+use_familiar($familiar[stocking mimic]);
+visit_url("inv_use.php?pwd&whichitem=9592");
+run_choice(1);
+
+// Breakfast
+cli_execute("breakfast");
