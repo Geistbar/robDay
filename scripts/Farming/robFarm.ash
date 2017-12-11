@@ -151,6 +151,7 @@ void main()
 	cli_execute("robMP-LOVE.ash");
 	cli_execute("nuns"); # Get mana
 	cli_execute("robFreeRun.ash"); 
+	cli_execute("robGingerbread.ash");
 	cli_execute("robFax");
 	cli_execute("robYellowRay.ash");
 	cli_execute("Cast Bind Spaghetti Elemental");
