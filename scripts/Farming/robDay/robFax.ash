@@ -5,8 +5,10 @@ script "robFax.ash"
 *	
 /*******************************************************/
 
-void fax()
+void fax(familiar f)
 {
+	use_familiar(f);
+	
 	//visit_url("place.php?whichplace=chateau&action=chateau_painting"); run_combat();
 	
 	// Change setup
@@ -23,5 +25,6 @@ void fax()
 
 void main()
 {
-	fax();
+	familiar fam = $familiar[Stocking Mimic];
+	fax(fam);
 }
