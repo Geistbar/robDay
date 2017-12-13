@@ -6,28 +6,9 @@ script "robGingerbread.ash"
 *	candy or a latte.
 /*******************************************************/
 
-// Gets batch of random candies
-void gingerbreadCandy(familiar fam)
+void gingerSetup(familiar f)
 {
-	cli_execute("autoattack GingerbreadKills");
-	use_familiar(fam);
-	cli_execute("Outfit Freekills");
-	
-	// Move clock forward
-	adv1($location[Gingerbread Civic Center],-1,"");
-	run_choice(1);
-	
-	adv1($location[Gingerbread Train Station],-1,"");
-	cli_execute("autoattack Freekills");
-	adv1($location[Gingerbread Train Station],-1,"");
-	adv1($location[Gingerbread Train Station],-1,"");
-	adv1($location[Gingerbread Train Station],-1,"");
-	run_choice(1);
-}
-
-// Gets a Gingerbread spice latte
-void gingerbreadPotion(familiar f)
-{
+	// Setup equipment, familiar, autoattack
 	cli_execute("autoattack GingerbreadKills");
 	use_familiar(f);
 	bjornify_familiar($familiar[Spooky Pirate Skeleton]);
@@ -38,11 +19,29 @@ void gingerbreadPotion(familiar f)
 	adv1($location[Gingerbread Civic Center],-1,"");
 	run_choice(1);
 	
+	// Get sprinkles in the sewers
 	adv1($location[Gingerbread Sewers],-1,"");
 	cli_execute("autoattack Freekills");
 	adv1($location[Gingerbread Sewers],-1,"");
 	equip($item[Sugar raygun]);
 	adv1($location[Gingerbread Sewers],-1,"");
+}
+
+// Gets batch of random candies
+void gingerbreadCandy(familiar f)
+{
+	gingerSetup(f);
+	adv1($location[Gingerbread Train Station],-1,"");
+	run_choice(1);
+	
+	cli_execute("Outfit FreeDrops");
+	put_closet(1,$item[sour ball and chain]);
+}
+
+// Gets a Gingerbread spice latte
+void gingerbreadPotion(familiar f)
+{
+	gingerSetup(f);
 	adv1($location[Gingerbread Upscale Retail District],-1,"");
 	run_choice(3);
 	
