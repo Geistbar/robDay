@@ -88,7 +88,7 @@ void MPbuffs()
 	
 	// Get more mana from Love Tunnel
 	cli_execute("autoattack LoveTunnel");
-	use_familiar($familiar[Trick-or-Treating Tot]);
+	use_familiar($familiar[Grim Brother]);
 	equip($item[tiny black hole]);
 	loveTunnel(3,2,3); // Third choice for each
 	cli_execute("cast * dice");

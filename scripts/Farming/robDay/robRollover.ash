@@ -41,7 +41,13 @@ void rollover()
 	
 	// Grab photocopy
 	if (item_amount($item[photocopied monster]) == 0)
-		cli_execute("faxbot witchess bishop");}
+	{
+		cli_execute("/whitelist generic clan name");
+		cli_execute("fax get");
+		cli_execute("/whitelist the clan of intelligent people");
+		if (!visit_url("desc_item.php?whichitem=835898159").contains_text("bishop"))
+			cli_execute("faxbot witchess bishop");
+	}
 
 void main()
 {
