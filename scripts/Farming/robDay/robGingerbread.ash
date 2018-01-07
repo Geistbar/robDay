@@ -13,6 +13,7 @@ void gingerSetup(familiar f)
 	use_familiar(f);
 	bjornify_familiar($familiar[Spooky Pirate Skeleton]);
 	take_closet(1,$item[sour ball and chain]);
+	take_closet(1,$item[gingerbread hoodie]);
 	cli_execute("Outfit Freekills");
 	
 	// Move clock forward
@@ -36,6 +37,7 @@ void gingerbreadCandy(familiar f)
 	
 	cli_execute("Outfit FreeDrops");
 	put_closet(1,$item[sour ball and chain]);
+	put_closet(1,$item[gingerbread hoodie]);
 }
 
 // Gets a Gingerbread spice latte
@@ -47,6 +49,7 @@ void gingerbreadPotion(familiar f)
 	
 	cli_execute("Outfit FreeDrops");
 	put_closet(1,$item[sour ball and chain]);
+	put_closet(1,$item[gingerbread hoodie]);
 }
 
 void main()

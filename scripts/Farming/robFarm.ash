@@ -150,15 +150,13 @@ void main()
 	cli_execute("robFreeBuffs.ash");
 	cli_execute("robMP-LOVE.ash");
 	cli_execute("nuns"); // Get mana
-	cli_execute("robFreeRun.ash"); 
+	cli_execute("robFreeRun.ash");  
 	cli_execute("robGingerbread.ash");
-	cli_execute("crimbo.ash"); // Crimbo
 	cli_execute("robFax.ash");
 	cli_execute("robYellowRay.ash");
 	cli_execute("Cast Bind Spaghetti Elemental");
 	cli_execute("autoConspiracy.ash");
 	cli_execute("nuns"); // Get mana
-	cli_execute("robEvent.ash");
 	cli_execute("robEldritch.ash");
 	cli_execute("robDiner.ash");
 	cli_execute("robEatDrink.ash");

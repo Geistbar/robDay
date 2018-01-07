@@ -6,7 +6,7 @@ script "robPvP.ash"
 /*******************************************************/
 string winMessage = "Hi!";
 string loseMessage = "Hi!";
-int stance = 0;
+int stance = 7;
 string hitfor = "lootwhatever";
 //string hitfor = "fame";
 //string hitfor = "flowers";

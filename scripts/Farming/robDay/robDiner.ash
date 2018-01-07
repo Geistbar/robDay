@@ -66,7 +66,10 @@ void diner()
 	// Get early stuff done; CSA fire-starter kit & Bjorn familiar drops
  	adventure(45,$location[Sloppy seconds Diner]);
 	cli_execute("outfit Farming2");
+	bjornify_familiar($familiar[Optimistic Candle]);
 	adventure(15,$location[Sloppy seconds Diner]);
+	bjornify_familiar($familiar[Spooky Pirate Skeleton]);
+	//adventure(10,$location[Sloppy seconds Diner]);
 }
 
 void main()

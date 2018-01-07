@@ -73,29 +73,6 @@ void numberology(int digits)
 		numberologyCount+=1;
 }
 
-/* void digitizeUpdate()
-{
-	if (get_property("_sourceTerminalDigitizeMonsterCount").to_int() >= 5)
-	{
-		if (digitizeCount == 1)
-		{
-			cli_execute("autoattack Copy3");
-			visit_url("place.php?whichplace=chateau&action=chateau_painting");
-			run_combat();
-			digitizeCount+=1;
-			cli_execute("autoattack Farming");
-		}
-		else if (digitizeCount == 2)
-		{
-			cli_execute("autoattack Copy3");
-			use(1,$item[photocopied monster]);
-			run_combat();
-			digitizeCount+=1;
-			cli_execute("autoattack Farming");
-		}
-	}
-} */
-
 void digitizeUpdate()
 {
 	cli_execute("autoattack Copy3");
@@ -110,7 +87,12 @@ void digitizeUpdate()
 
 void farm()
 {
- 	equip($slot[weapon],$item[garbage sticker]);
+	// Safety checks
+	cli_execute("outfit Farming2");
+	cli_execute("autoattack Farming");
+ 	
+	// Buff updates
+	equip($slot[weapon],$item[garbage sticker]);
 	wobble($effect[Wasabi Sinuses], $item[Knob Goblin nasal spray], 10);
 	wobble($effect[Merry Smithsness], $item[Flaskfull of Hollow], 150);
 	wobble($effect[How to Scam Tourists], $item[How to Avoid Scams], 20);
@@ -137,7 +119,7 @@ void farm()
 	// Finish adventuring -- Loop at final location while YRing
 	while (my_adventures() > 0)
 	{	
-		if(numberologyCount < 2)
+		if(numberologyCount < 3)
 			numberology(69);
 		if (digitizeCount < 3 && get_property("_sourceTerminalDigitizeMonsterCount").to_int() >= 5)
 			digitizeUpdate();

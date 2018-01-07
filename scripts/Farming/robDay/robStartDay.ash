@@ -125,5 +125,10 @@ use_familiar($familiar[stocking mimic]);
 visit_url("inv_use.php?pwd&whichitem=9592");
 run_choice(1);
 
+// Stupid print screen button
+if (mall_price($item[bacon]) < 500)
+	cli_execute("create print screen button");
+
 // Breakfast
 cli_execute("breakfast");
+cli_execute("use * ten-leaf clover");
