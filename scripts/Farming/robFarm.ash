@@ -154,6 +154,7 @@ void main()
 	cli_execute("robGingerbread.ash");
 	cli_execute("robFax.ash");
 	cli_execute("robYellowRay.ash");
+	cli_execute("robJelly.ash");
 	cli_execute("Cast Bind Spaghetti Elemental");
 	cli_execute("autoConspiracy.ash");
 	cli_execute("nuns"); // Get mana

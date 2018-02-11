@@ -6,12 +6,12 @@ script "robWitchess.ash"
 *
 *	Pawn: piece 1935
 *	Knight: 1936
-*	Bishop: 1942
-*	Rook: 1938
 *	Ox: 1937
+*	Rook: 1938
+*	Queen: 1939
 *	King: 1940
 *	Witch: 1941
-*	Queen: 1939
+*	Bishop: 1942
 /*******************************************************/
 
 void chessFight(familiar f)
@@ -19,7 +19,6 @@ void chessFight(familiar f)
 	// Fail-safe setup
 	cli_execute("autoattack Farming");
 	cli_execute("outfit FreeDrops");
-	use_familiar($familiar[Stocking Mimic]);
 	cli_execute("terminal educate digitize; terminal educate duplicate");
 	bjornify_familiar($familiar[Grim Brother]);
 	
