@@ -142,8 +142,7 @@ void main()
 	
  	cli_execute("robstartday.ash");
 	cli_execute("autovolcano.ash");
-	cli_execute("nuns"); // Get mana
-	cli_execute("robWitchess.ash");
+	cli_execute("nuns"); // Get mana 
 	cli_execute("robSnojo.ash");
 	cli_execute("robBrickos.ash");
 	cli_execute("robMachinetunnels.ash");
@@ -151,6 +150,7 @@ void main()
 	cli_execute("robMP-LOVE.ash");
 	cli_execute("nuns"); // Get mana
 	cli_execute("robFreeRun.ash");  
+	cli_execute("robWitchess.ash");
 	cli_execute("robGingerbread.ash");
 	cli_execute("robFax.ash");
 	cli_execute("robYellowRay.ash");

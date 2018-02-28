@@ -24,7 +24,7 @@ void chessFight(familiar f)
 	
 	use_familiar(f);
 	int n = 0;
-	while (n < 4)
+	while (n < 2)
 	{
 		visit_url("campground.php?action=witchess");
 		run_choice(1);
@@ -32,12 +32,12 @@ void chessFight(familiar f)
 		run_combat(); // Safety check
 		n+=1;
 	}
-	// Copy the Bishop for extra drops
+	
 	cli_execute("autoattack Copy1");
 	use_familiar($familiar[Obtuse Angel]);
 	visit_url("campground.php?action=witchess");
 	run_choice(1);
-	visit_url("choice.php?option=1&pwd=" + my_hash() + "&whichchoice=1182&piece=" + 1942, false);
+	visit_url("choice.php?option=1&pwd=" + my_hash() + "&whichchoice=1182&piece=" + 1936, false);
 	run_combat(); // Safety check
 	
 	// After fight re-setting

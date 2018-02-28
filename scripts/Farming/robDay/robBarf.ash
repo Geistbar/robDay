@@ -76,12 +76,10 @@ void numberology(int digits)
 void digitizeUpdate()
 {
 	cli_execute("autoattack Copy3");
-	if (digitizeCount == 1)
-		visit_url("place.php?whichplace=chateau&action=chateau_painting");
-	else if (digitizeCount == 2)
-		use(1,$item[photocopied monster]);
-	run_combat();
-	digitizeCount+=1;
+	visit_url("campground.php?action=witchess");
+	run_choice(1);
+	visit_url("choice.php?option=1&pwd=" + my_hash() + "&whichchoice=1182&piece=" + 1942, false);
+	run_combat(); // Safety check
 	cli_execute("autoattack Farming");
 }
 

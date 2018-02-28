@@ -116,8 +116,8 @@ if (item_amount($item[photocopied monster]) == 0)
 	cli_execute("/whitelist generic clan name");
 	cli_execute("fax get");
 	cli_execute("/whitelist the clan of intelligent people");
-	if (!visit_url("desc_item.php?whichitem=835898159").contains_text("Witchess Bishop"))
-		cli_execute("faxbot witchess bishop");
+	if (!visit_url("desc_item.php?whichitem=835898159").contains_text("Knob Goblin Embezzler"))
+			cli_execute("faxbot Knob Goblin Embezzler");
 }
 
 // Use mumming trunk

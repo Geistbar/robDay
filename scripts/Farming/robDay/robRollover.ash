@@ -5,7 +5,7 @@ script "robRollover.ash"
 *	Finishes character day and gets ready for rollover.
 /*******************************************************/
 
-void rollover()
+void rolloverPrep()
 {
 	// Item Maintence
 	put_shop(0,0,$item[Five Second Energy&trade;]);
@@ -45,12 +45,14 @@ void rollover()
 		cli_execute("/whitelist generic clan name");
 		cli_execute("fax get");
 		cli_execute("/whitelist the clan of intelligent people");
-		if (!visit_url("desc_item.php?whichitem=835898159").contains_text("Witchess Bishop"))
-			cli_execute("faxbot witchess bishop");
+		if (!visit_url("desc_item.php?whichitem=835898159").contains_text("Knob Goblin Embezzler"))
+			cli_execute("faxbot Knob Goblin Embezzler");
 	}
+	
+	cli_execute("autofortune.ash");
 }
 
 void main()
 {
-	rollover();
+	rolloverPrep();
 }
