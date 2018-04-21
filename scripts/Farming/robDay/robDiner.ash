@@ -14,18 +14,7 @@ void getUse(int qty, item it)
 	int qtyNeeded = qty - item_amount(it);
 	
 	if (qtyNeeded > 0)
-	{
-		if ((it == $item[knob goblin pet-buffing spray]) || (it == $item[Knob Goblin nasal spray]))
-		{
-			cli_execute("/whitelist Intelligent Storage Inc.");
-			take_stash(1,$item[Travoltan Trousers]);
-			cli_execute("Buy " + qtyNeeded + " " + it);
-			put_stash(1,$item[Travoltan Trousers]);
-			cli_execute("/whitelist The Clan Of Intelligent People");
-		}
-		else
-			cli_execute("Buy " + qtyNeeded + " " + it);
-	}
+		cli_execute("Buy " + qtyNeeded + " " + it);
 	use(qty,it);
 }
 

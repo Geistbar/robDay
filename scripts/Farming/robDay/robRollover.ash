@@ -28,14 +28,17 @@ void rolloverPrep()
 	// Change gear and familiar
 	cli_execute("fold stinky cheese diaper");
 	cli_execute("outfit Rollover");
-	use_familiar($familiar[Trick-or-Treating Tot]);
 
 	//	Drink nightcap
 	cli_execute("shrug The Sonata of Sneakiness");
 	use_skill(1,$skill[The Ode to Booze]);
+	use_familiar($familiar[Stooper]);
+	drink(1,$item[Splendid Martini]);
 	cli_execute("drink grogtini");
 	cli_execute("mix grogtini");
 	cli_execute("shrug ode");
+	
+	use_familiar($familiar[Trick-or-Treating Tot]);
 	
 	cli_execute("hottub");
 	
