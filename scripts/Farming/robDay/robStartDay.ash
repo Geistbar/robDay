@@ -27,6 +27,10 @@ cli_execute("cast request sandwich");
 cli_execute("cast request sandwich");
 cli_execute("cast request sandwich");
 
+// Set song
+visit_url("inv_use.php?pwd=&pwd&which=3&whichitem=9919");
+run_choice(5);
+
 // Assorted whatevers
 cli_execute("Make 3 potion of punctual companionship");
 cli_execute("shower ice");
@@ -39,7 +43,7 @@ visit_url("campground.php?action=dnapotion");
 // if (item_amount($item[time's arrow]) == 0)
 // buy(1,$item[time's arrow],20000);
 // cli_execute("throw time's arrow at skf");
-cli_execute("/cast hug @ skf");
+//cli_execute("/cast hug @ skf");
 
 // Call default Mafia breakfast
 cli_execute("breakfast");
@@ -124,6 +128,11 @@ if (item_amount($item[photocopied monster]) == 0)
 use_familiar($familiar[stocking mimic]);
 visit_url("inv_use.php?pwd&whichitem=9592");
 run_choice(1);
+
+// New crappy skills
+use_skill(1,$skill[Acquire Rhinestones]);
+use_skill(1,$skill[Love Mixology]);
+
 
 // Stupid print screen button
 if (mall_price($item[bacon]) < 500)

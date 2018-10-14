@@ -51,7 +51,7 @@ void MPbuffs()
 	// Setup
 	if (item_amount($item[sea salt scrubs]) < 1)
 		take_closet(1,$item[sea salt scrubs]);
-	cli_execute("outfit mp");
+	cli_execute("outfitMP.ash");
 	use_familiar($familiar[disembodied hand]);
 	cli_execute("cast * dice");
 	cli_execute("ballpit");
@@ -86,4 +86,5 @@ void MPbuffs()
 void main()
 {
 	MPbuffs();
+	cli_execute("autoattack none");
 }

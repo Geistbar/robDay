@@ -11,7 +11,7 @@ void yellowRay()
 	if (have_effect($effect[Everything Looks Yellow]) > 0)
 		return;
 	// Fail-safe check
-	cli_execute("autoattack farming");
+	cli_execute("ccs Farming");
 	// Check to see if you reached the end of the gym
 	if (contains_text(visit_url("questlog.php?which=1"),"Time Left: 3")) 
 	{

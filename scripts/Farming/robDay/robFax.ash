@@ -8,7 +8,7 @@ script "robFax.ash"
 void fax(familiar f)
 {
 	use_familiar(f);
-	cli_execute("outfit meat2");
+	cli_execute("outfitMeat2.ash");
 	cli_execute("autoattack Copy2");
 	
 	visit_url("place.php?whichplace=chateau&action=chateau_painting"); 
@@ -23,6 +23,7 @@ void fax(familiar f)
 	use(1,$item[Rain-Doh box full of monster]);
 	use(1,$item[Spooky Putty monster]);
 	use(1,$item[photocopied monster]);
+	cli_execute("autoattack none");
 	
 }
 

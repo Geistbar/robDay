@@ -1,4 +1,4 @@
-
+import <gbFun.ash>
 
 /*******************************************************
 *					Scriptwide Variables
@@ -34,6 +34,7 @@ string rnum(float n) { return rnum(n,2); }
 /*-----------------------------------------------------
 *					Sub-Functions Start
 /*----------------------------------------------------*/
+
 /*******************************************************
 *					dataStart()
 *	Stores basic inventory and meat data for calculating
@@ -142,14 +143,15 @@ void main()
 	
  	cli_execute("robstartday.ash");
 	cli_execute("autovolcano.ash");
-	cli_execute("nuns"); // Get mana 
+	cli_execute("nuns"); // Get mana  
 	cli_execute("robSnojo.ash");
 	//cli_execute("robBrickos.ash");
 	cli_execute("robMachinetunnels.ash");
 	cli_execute("robFreeBuffs.ash");
 	cli_execute("robMP-LOVE.ash");
-	cli_execute("nuns"); // Get mana
-	cli_execute("robFreeRun.ash");  
+	cli_execute("robParty.ash");
+	cli_execute("nuns"); // Get mana 
+	cli_execute("robFreeRun.ash");
 	cli_execute("robWitchess.ash");
 	cli_execute("robGingerbread.ash");
 	cli_execute("robFax.ash");
@@ -157,9 +159,8 @@ void main()
 	cli_execute("robJelly.ash");
 	cli_execute("Cast Bind Spaghetti Elemental");
 	cli_execute("autoConspiracy.ash");
-	cli_execute("nuns"); // Get mana
+	cli_execute("nuns; cast Cannelloni Cocoon"); // Get mana
 	cli_execute("robEldritch.ash");
-	cli_execute("autoFantasy.ash");
 	cli_execute("robDiner.ash");
 	cli_execute("robEatDrink.ash");
 	cli_execute("robBarf.ash");

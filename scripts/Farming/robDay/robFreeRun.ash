@@ -41,7 +41,7 @@ void freeRun()
 	// Fail-safe setup
 	cli_execute("autoattack BootRunaway");
 	//take_closet(1,$item[Lord Soggyraven's Slippers]);
-	cli_execute("outfit BootRunaway");
+	cli_execute("outfitBootRunaway.ash");
 	bjornify_familiar($familiar[Spooky Pirate Skeleton]);
   	use_skill(1,$skill[Bind Spice Ghost]);
 	use_familiar($familiar[Pair of Stomping Boots]);
@@ -61,12 +61,10 @@ void freeRun()
 	bootsRun(availableRunaways(),place);
 	equip($item[Wal-Mart snowglobe]);
 	bootsRun(availableRunaways(),place);
-	
-	// Return to closet
-	//put_closet(1,$item[Lord Soggyraven's Slippers]);
 }
 
 void main()
 {
 	freeRun();
+	cli_execute("autoattack none");
 }

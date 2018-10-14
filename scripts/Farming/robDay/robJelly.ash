@@ -28,8 +28,8 @@ void getJelly(string ele, int target)
 void main()
 {
 	// Setup
-	cli_execute("outfit freedrops");
-	cli_execute("autoattack Farming");
+	cli_execute("outfitFreedrops.ash");
+	cli_execute("autoattack none; ccs farming");
 	use_familiar($familiar[Space Jellyfish]);
 	
 	// Actual work; valid inputs are "cold" "hot" "spooky" "stench" "sleaze"

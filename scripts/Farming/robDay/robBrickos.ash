@@ -10,7 +10,7 @@ void brickos(familiar f)
 {
 	// Fail-safe setup
 	cli_execute("autoattack Farming");
-	cli_execute("outfit FreeDrops");
+	cli_execute("outfitFreeDrops.ash");
 	use_skill(1,$skill[Bind Spice Ghost]);
 	
 	use_familiar(f);

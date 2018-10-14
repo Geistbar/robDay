@@ -18,7 +18,7 @@ void chessFight(familiar f)
 {
 	// Fail-safe setup
 	cli_execute("autoattack Farming");
-	cli_execute("outfit FreeDrops");
+	cli_execute("outfitFreeDrops.ash");
 	cli_execute("terminal educate digitize; terminal educate duplicate");
 	bjornify_familiar($familiar[Grim Brother]);
 	
@@ -41,7 +41,7 @@ void chessFight(familiar f)
 	run_combat(); // Safety check
 	
 	// After fight re-setting
-	cli_execute("autoattack Farming");
+	cli_execute("autoattack none; ccs farming");
 	cli_execute("terminal educate extract; terminal educate digitize");
 }
 

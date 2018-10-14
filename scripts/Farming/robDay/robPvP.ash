@@ -6,7 +6,7 @@ script "robPvP.ash"
 /*******************************************************/
 string winMessage = "Hi!";
 string loseMessage = "Hi!";
-int stance = 7;
+int stance = 5;
 string hitfor = "lootwhatever";
 //string hitfor = "fame";
 //string hitfor = "flowers";
@@ -19,8 +19,8 @@ void PvPFights()
  	
 	cli_execute("familiar none");
 	cli_execute("/outfit naked");
-	cli_execute("outfit PvP");
-	use_familiar($familiar[Exotic Parrot]);
+	cli_execute("outfitPvP.ash");
+	use_familiar($familiar[Stocking Mimic]);
 	
 	string attackURL = "peevpee.php?action=fight&place=fight&attacktype=" + hitFor + "&ranked=1" + "&stance=" + stance + "&who=" + "&losemessage=" + loseMessage + "&winmessage=" + winMessage;
 	while (pvp_attacks_left() > 0)

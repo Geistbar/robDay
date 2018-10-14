@@ -7,8 +7,8 @@ script "robSnojo.ash"
 void snojo(familiar f)
 {
 	// Fail-safe setup
-	cli_execute("autoattack Farming");
-	cli_execute("outfit FreeDrops");
+	cli_execute("autoattack none; ccs farming");
+	cli_execute("outfitFreeDrops.ash");
 	bjornify_familiar($familiar[Grimstone Golem]);
 
 	use_familiar(f);

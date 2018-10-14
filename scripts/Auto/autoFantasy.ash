@@ -22,33 +22,20 @@ void main()
 	cli_execute("set mpAutoRecovery = 0.3"); 
 	cli_execute("set mpAutoRecoveryTarget = 0.5");
 	
-	adventure(5,$location[The Cursed Village]);
-	visit_url("adventure.php?snarfblat=506");
-	run_choice(4); // Fortune Teller
-	//cli_execute("buy 2 mmj; use 2 mmj");
-	
-	adventure(5,$location[The Towering Mountains]);
-	visit_url("adventure.php?snarfblat=503");
-	run_choice(2); // Head into the deep cave
-	//cli_execute("buy 2 mmj; use 2 mmj");
-	
-	adventure(5,$location[The Bandit Crossroads]);
-	adventure(5,$location[The Foreboding Cave]);
-	visit_url("adventure.php?snarfblat=510");
-	run_choice(1); // Open the chest
-	
-	adventure(5,$location[The Putrid Swamp]);
-	visit_url("adventure.php?snarfblat=505");
-	run_choice(1); // Go towards the witch's house
-	adventure(5,$location[Near The Witch's House]);
-	visit_url("adventure.php?snarfblat=513");
-	run_choice(4);
+	adventure(6,$location[The Cursed Village]);
+	adventure(6,$location[The Towering Mountains]);
+	adventure(6,$location[The Foreboding Cave]);
+	adventure(6,$location[The Sprawling Cemetery]);
 	
 	// Restore mana state
 	cli_execute("set manaBurningThreshold = " + manaburn);
 	cli_execute("set manaBurningTrigger = " + manatrigger);
 	cli_execute("set mpAutoRecovery = " + manarecover);
 	cli_execute("set mpAutoRecoveryTarget = " + manatarget);
+	
+/* 	equip($slot[acc1],$item[none]);
+	equip($slot[acc2],$item[none]);
+	equip($slot[acc3],$item[none]); */
 	
 	cli_execute("ccs default; autoattack farming; /outfit none; shrug brawn; /closet 1 sea salt scrubs");
 }

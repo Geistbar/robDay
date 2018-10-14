@@ -23,4 +23,11 @@ void cheesefax()
 void main()
 {	
 	cheesefax();
+	
+	put_shop(0,0,$item[How To Get Bigger Without Really Trying]);
+	put_shop(0,0,$item[Illustrated Mating Rituals of the Gallapagos]);
+	put_shop(0,0,$item[Convincing People You Can See The Future]);
+	put_shop(0,0,$item[Love Potions and the Wizards who Mix Them]);
+	put_shop(0,0,$item[They'll Love You In Rhinestones]);
+	put_shop(0,0,$item[Silly Little Love Song]);
 }

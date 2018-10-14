@@ -34,7 +34,7 @@ void rolloverPrep()
 	use_skill(1,$skill[The Ode to Booze]);
 	use_familiar($familiar[Stooper]);
 	drink(1,$item[Splendid Martini]);
-	cli_execute("drink grogtini");
+	overdrink(1,$item[grogtini]);
 	cli_execute("mix grogtini");
 	cli_execute("shrug ode");
 	

@@ -7,8 +7,8 @@ script "robEldritch.ash"
 
 void eldritchFight(familiar f)
 {
-	cli_execute("Outfit FreeDrops");
-	cli_execute("autoattack Farming");
+	cli_execute("OutfitFreeDrops.ash");
+	cli_execute("ccs Farming");
 	use_familiar(f);
 	
 	use_skill(1,$skill[Evoke Eldritch Horror]);

@@ -1,5 +1,5 @@
 script "robBarf.ash"
-
+import <gbFun.ash>
 /*******************************************************
 *					robBarf()
 *	Spends adventures at Barf Mountain to get meat.
@@ -10,46 +10,7 @@ boolean run_Conspiracy = TRUE;
 int numberologyCount = 0;
 int digitizeCount = 1;
 
-/*******************************************************
-*					getUse()
-*	Retrives & uses a specified quantity of a item.
-/*******************************************************/
-void getUse(int qty, item it)
-{
-	int qtyNeeded = qty - item_amount(it);
-	
-	if (qtyNeeded > 0)
-		cli_execute("Buy " + qtyNeeded + " " + it);
-	use(qty,it);
-}
-
-/*******************************************************
-*					getEat()
-*	Retrives & eats a specified quantity of a food.
-/*******************************************************/
-void getEat(int qty, item it)
-{
-	int qtyNeeded = qty - item_amount(it);
-	if (qtyNeeded > 0 && it == $item[Karma shawarma])
-		buy($coinmaster[The SHAWARMA Initiative],qty,it);
-	else if (qtyNeeded > 0 && it == $item[dinsey food-cone])
-		buy($coinmaster[The Dinsey Company Store],qty,it);
-	else if (qtyNeeded > 0)
-		cli_execute("Buy " + qtyNeeded + " " + it);
-	eat(qty,it);
-}
-
-/*******************************************************
-*					wobble()
-*	Gets a specified buff from a specified item. 
-*	Optimizes for your current turns and turns remaining
-*	of the buff if you have it already.
-/*******************************************************/
-void wobble(effect buff, item source, int turns)
-{
-	int effectTurns = my_adventures() - have_effect(buff);
-	getUse(effectTurns/turns + 1, source);
-}
+//getuse geteat wobble
 
 /*******************************************************
 *					numberology(int digits)
@@ -69,14 +30,15 @@ void digitizeUpdate()
 	run_choice(1);
 	visit_url("choice.php?option=1&pwd=" + my_hash() + "&whichchoice=1182&piece=" + 1942, false);
 	run_combat(); // Safety check
-	cli_execute("autoattack Farming");
+	cli_execute("autoattack none");
 }
 
 void farm()
 {
 	// Safety checks
-	cli_execute("outfit Farming2");
-	cli_execute("autoattack Farming");
+	cli_execute("outfitFarming2.ash");
+	cli_execute("ccs farming");
+	cli_execute("autoattack none");
  	
 	// Buff updates
 	equip($slot[weapon],$item[garbage sticker]);
@@ -101,7 +63,7 @@ void farm()
 		adventure(1,$location[Barf Mountain]);
 	// Buffs
 	cli_execute("pool 1"); cli_execute("pool 1");
-	cli_execute("outfit Farming4");
+	cli_execute("outfitFarming4.ash");
 	
 	// Finish adventuring -- Loop at final location while YRing
 	while (my_adventures() > 0)
