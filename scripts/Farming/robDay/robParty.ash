@@ -15,10 +15,18 @@ void main()
 	{
 		count+=1;
 		adv1($location[the neverending party],-1,"");
+		if (run_choice(-1).contains_text("Neverending Party favor"))
+			return;
 	}
 	cli_execute("outfitMP.ash");
 	adv1($location[the neverending party],-1,"");
 	cli_execute("cast * dice"); cli_execute("outfitMeat1.ash");
+	if (run_choice(-1).contains_text("Neverending Party favor"))
+		return;
 	adv1($location[the neverending party],-1,"");
+	if (run_choice(-1).contains_text("Neverending Party favor"))
+		return;
 	adv1($location[the neverending party],-1,"");
+	if (run_choice(-1).contains_text("Neverending Party favor"))
+		return;
 }
