@@ -2,7 +2,10 @@ script "Test.ash"
 
 void main()
 {
-	// Fortune Teller
-	visit_url("clan_viplounge.php?preaction=lovetester");
-	visit_url("choice.php?pwd&whichchoice=1278&option=1&which=-3&whichid=&q1=a&q2=a&q3=a");
+	// Boxing Daycare
+	visit_url("place.php?whichplace=town_wrong&action=townwrong_boxingdaycare");
+	run_choice(1);
+	run_choice(2);
+	run_choice(3);
+	run_choice(4);
 }

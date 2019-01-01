@@ -37,11 +37,11 @@ void farm()
 {
 	// Safety checks
 	cli_execute("outfitFarming2.ash");
-	cli_execute("ccs farming");
-	cli_execute("autoattack none");
+	cli_execute("ccs Farming");
  	
 	// Buff updates
 	equip($slot[weapon],$item[garbage sticker]);
+	wobble($effect[Wasabi Sinuses], $item[Knob Goblin nasal spray], 10);
 	wobble($effect[Merry Smithsness], $item[Flaskfull of Hollow], 150);
 	wobble($effect[How to Scam Tourists], $item[How to Avoid Scams], 20);
 	
@@ -52,14 +52,13 @@ void farm()
 	if (have_effect($effect[everything looks yellow]) == 0)
 		cli_execute("robYellowRay.ash");
 	
-	// Pantsgiving fullness
-	adventure(2,$location[Barf Mountain]);
-	getEat(1,$item[ice rice]);
-	adventure(2,$location[Barf Mountain]);
-	getEat(1,$item[jumping horseradish]);
 	// Adventure at Barf Mountain until Cheese is fully charged
 	while(get_property("_stinkyCheeseCount").to_int() < 100)
+	{
+		if (have_effect($effect[everything looks yellow]) == 0)
+			cli_execute("robYellowRay.ash");
 		adventure(1,$location[Barf Mountain]);
+	}
 	// Buffs
 	cli_execute("pool 1"); cli_execute("pool 1");
 	cli_execute("outfitFarming4.ash");

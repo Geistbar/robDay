@@ -10,8 +10,6 @@ void expenseBuffs()
 	getUse(1,$item[red snowcone]);
 	getUse(1,$item[Gene Tonic: Constellation]);
 	getUse(1,$item[pink candy heart]);
-	getUse(1,$item[Knob Goblin pet-buffing spray]);
-	getUse(1,$item[Knob Goblin nasal spray]);
 	getUse(1,$item[resolution: be wealthier]);
 	getUse(1,$item[resolution: be kinder]);
 	use(5,$item[Meat-inflating powder]);

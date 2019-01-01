@@ -137,6 +137,13 @@ use_skill(1,$skill[Love Mixology]);
 // Stupid print screen button
 if (mall_price($item[bacon]) < 500)
 	cli_execute("create print screen button");
+	
+// Boxing Daycare
+visit_url("place.php?whichplace=town_wrong&action=townwrong_boxingdaycare");
+run_choice(1);
+run_choice(2);
+run_choice(3);
+run_choice(4);
 
 // Breakfast
 cli_execute("breakfast");

@@ -23,11 +23,11 @@ void diner()
 	cli_execute("fold stinky cheese eye");
 	use_familiar($familiar[Stocking Mimic]);
 	// Buffs
-	wobble($effect[Wasabi Sinuses], $item[Knob Goblin nasal spray], 10);
 	wobble($effect[Merry Smithsness], $item[Flaskfull of Hollow], 150);
 	// Have fam, outfit, etc
 	use_familiar($familiar[Stocking Mimic]);
 	cli_execute("outfitFarming1.ash");
+	//cli_execute("equip toyleporter");
 	cli_execute("autoattack none");
 	cli_execute("ccs farming");
 	
